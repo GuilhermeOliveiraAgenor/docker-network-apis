@@ -13,7 +13,8 @@ O projeto é composto por dois serviços principais:
 - Utiliza **Redis** para cache dos dados nos endpoints de leitura
 - Expõe rotas REST com Flask
 
-Quando o cache está disponível, a resposta é retornada diretamente, evitando consultas ao MySQL. Na ausência de cache, os dados são buscados no banco e a resposta é construída.
+Quando o cache está disponível, a resposta é retornada diretamente, evitando consultas ao MySQL.  
+Na ausência de cache, os dados são buscados no banco e a resposta é construída.
 
 ### 🔹 API Node.js
 - Atua como **API consumidora**
@@ -27,19 +28,24 @@ Todo o ambiente é executado em containers Docker, com cada serviço possuindo s
 
 ## Features
 
-📋 Requisitos Funcionais (RF)
-
+### 📋 Requisitos Funcionais (RF)
 - RF01: Permitir cadastrar produtos com descrição, categoria e preço
 - RF02: Permitir listar todos os produtos cadastrados
 - RF03: Permitir atualizar produtos existentes
 - RF04: Permitir remover produtos pelo identificador
 - RF05: Permitir acesso aos produtos via API consumidora (Node.js)
 
-⚙️ Requisitos Não Funcionais (RNF)
-
+### ⚙️ Requisitos Não Funcionais (RNF)
 - RNF01: Utilizar Redis como cache para operações de leitura
-- RNF02: Garantir invalidação automática do cache em operações de escrita 
-- RNF03: Persistir os dados em banco MySQL 
+- RNF02: Garantir invalidação automática do cache em operações de escrita
+- RNF03: Persistir os dados em banco MySQL
 - RNF04: Utilizar Docker para isolamento dos serviços
 
 ---
+
+## ▶️ Run
+
+### 1️⃣ Clonar o repositório
+```bash
+git clone <url-do-repositorio>
+cd <nome-do-repositorio>
