@@ -1,4 +1,4 @@
-# 🐳 API Product – Node.js + Python com Docker
+# API Product – Node.js + Python com Docker
 
 Este projeto demonstra uma arquitetura baseada em **microserviços**, utilizando **Docker** e **Docker Compose**, onde uma **API em Python** é responsável pelo CRUD de produtos e uma **API em Node.js** consome a API Python para listar os dados cadastrados.
 
