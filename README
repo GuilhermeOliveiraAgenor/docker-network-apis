@@ -64,11 +64,9 @@ chmod +x deploy.sh
 ./deploy.sh
 
 ### 🔹 Opção 2 — Utilizando Docker Compose
-```bash
+```bas
 docker compose build
 docker compose up -d
-
-
 
 
 └── README.md
