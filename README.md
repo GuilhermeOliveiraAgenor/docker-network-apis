@@ -8,7 +8,7 @@ Este projeto demonstra uma arquitetura baseada em **microserviços**, utilizando
 
 O projeto é composto por dois serviços principais:
 
-### 🔹 API Python (Flask)
+### 🔹 API Python
 - Implementa um **CRUD de produtos** com Mysql
 - Utiliza **Redis** para cache dos dados nos endpoints de leitura
 - Expõe rotas REST com Flask
