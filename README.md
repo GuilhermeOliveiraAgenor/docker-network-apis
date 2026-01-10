@@ -13,18 +13,18 @@ O projeto é composto por dois serviços principais:
 - Utiliza **Redis** para cache dos dados nos endpoints de leitura
 - Expõe rotas REST com Flask
 
-Quando o cache está disponível, a resposta é retornada diretamente, evitando consultas ao MySQL.  
-Na ausência de cache, os dados são buscados no banco e a resposta é construída.
+Quando o cache está disponível, a resposta é retornada evitando consultas ao banco de dados.  
+Na ausência de cache, os dados são buscados no banco e são retornadas para a aplicação.
 
 ---
 
 ### 🔹 API Node.js
 - Atua como **API consumidora**
 - Realiza requisições HTTP para a API Python
-- Exibe os dados cadastrados na API Python
+- Exibe os dados cadastrados na API base
 - Implementada com **Express** e **Axios**
 
-Todo o ambiente é executado em containers Docker, com cada serviço possuindo seu próprio **Dockerfile**.
+Todo o ambiente é executado em containers Docker com cada serviço possuindo seu próprio **Dockerfile**.
 
 ---
 
@@ -66,7 +66,7 @@ chmod +x deploy.sh
 
 ##
 
-(Opcional) - Para subir apenas os serviços, rode os comandos
+(Deploy alternativo) - Para subir apenas os serviços
 ```
 docker compose build
 docker compose up -d
