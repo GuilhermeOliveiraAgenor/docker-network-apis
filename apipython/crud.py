@@ -1,8 +1,6 @@
 from models import db, Product
 import redis
-import json
 import os
-import redis
 import json
 
 redis_url = os.getenv('REDIS_URL', 'redis://localhost:6379')
@@ -39,7 +37,7 @@ def get_all_product():
     } for p in products]
 
     # Armazena no cache por 60 segundos
-    redis_client.set('products', json.dumps(result), ex=60)
+    redis_client.set('products', json.dumps(result), ex=30)
     return result
 
 # Atualiza um produto pelo ID

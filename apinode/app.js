@@ -29,7 +29,7 @@ app.get('/product', async (req, res) => {
     const data = response.data;
 
     await redisClient.set('products', JSON.stringify(data), {
-      EX: 60
+      EX: 30
     });
 
     console.log('Dados vindos da API Python');
@@ -38,6 +38,10 @@ app.get('/product', async (req, res) => {
     console.error('Erro ao acessar API Python:', error.message);
     res.status(500).json({ error: 'Erro ao acessar API Python' });
   }
+});
+
+app.get("/ping", (req, res) => {
+  return res.json({ message: "pong" });
 });
 
 const PORT = process.env.PORT || 3000;

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-echo "==========================================="
-echo "Parando containers e removendo volumes..."
-echo "==========================================="
-docker compose down -v
-
 echo ""
 echo "==========================================="
 echo "Buildando imagens do projeto..."
@@ -27,7 +22,7 @@ echo ""
 echo "==========================================="
 echo "⏳ Aguardando os serviços estabilizarem..."
 echo "==========================================="
-sleep 10
+sleep 5
 
 echo ""
 echo "==========================================="
@@ -56,7 +51,7 @@ echo ""
 echo "➡️ Teste: POST /product"
 RESPONSE=$(curl -s -X POST http://localhost:8000/product \
   -H "Content-Type: application/json" \
-  -d '{"description": "Mouse Gamer", "category": "Periféricos", "price": 159.99}')
+  -d '{"description": "Mouse Gamer Multilaser", "category": "Tecnologia", "price": 159}')
 echo "Resposta: $RESPONSE"
 
 # Extrair campos
@@ -76,7 +71,7 @@ echo ""
 echo "➡️ Teste: PUT /product/$ID"
 UPDATE_RESPONSE=$(curl -s -X PUT http://localhost:8000/product/$ID \
   -H "Content-Type: application/json" \
-  -d '{"description": "Mouse Gamer RGB", "category": "Acessórios", "price": 199.90}')
+  -d '{"description": "Mouse RGB", "category": "Acessorios", "price": 199}')
 echo "Resposta: $UPDATE_RESPONSE"
 
 # DELETE - Deletar produto

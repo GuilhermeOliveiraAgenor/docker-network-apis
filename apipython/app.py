@@ -1,4 +1,3 @@
-import os
 from flask import Flask, request, jsonify
 from config import Config
 from models import db, Product
