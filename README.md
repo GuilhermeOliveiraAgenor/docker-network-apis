@@ -1,75 +1,70 @@
-# API Product – Node.js + Python com Docker
+# API Product – Node.js + Python with Docker
 
-Este projeto demonstra uma arquitetura baseada em **microserviços**, utilizando **Docker** e **Docker Compose**, onde uma **API em Python** é responsável pelo CRUD de produtos e uma **API em Node.js** consome a API Python para listar os dados cadastrados.
+This project demonstrates an architecture based on **microservices**, using **Docker** and **Docker Compose**, where a **Python API** is responsible for the product CRUD and a **Node.js API** consumes the Python API to list the registered data.
 
 ---
 
 ## 📌 About
 
-O projeto é composto por dois serviços principais:
+The project is composed of two main services:
 
-### 🔹 API Python
-- Implementa um **CRUD de produtos** com Mysql
-- Utiliza **Redis** para cache dos dados nos endpoints de leitura
-- Expõe rotas REST com Flask
+### 🔹 Python API
+- Implements a **product CRUD** with MySQL
+- Uses **Redis** to cache data on read endpoints
+- Exposes REST routes with Flask
 
-Quando o cache está disponível, a resposta é retornada evitando consultas ao banco de dados.  
-Na ausência de cache, os dados são buscados no banco e são retornadas para a aplicação.
+When the cache is available, the response is returned avoiding database queries.
+If the cache is not available, the data is fetched from the database and returned to the application.
 
 ---
 
-### 🔹 API Node.js
-- Atua como **API consumidora**
-- Realiza requisições HTTP para a API Python
-- Exibe os dados cadastrados na API base
-- Implementada com **Express** e **Axios**
+### 🔹 Node.js API
+- Acts as a **consumer API**
+- Performs HTTP requests to the Python API
+- Displays the data registered in the base API
+- Implemented with **Express** and **Axios**
 
-Todo o ambiente é executado em containers Docker com cada serviço possuindo seu próprio **Dockerfile**.
+The entire environment runs in Docker containers, with each service having its own **Dockerfile**.
 
 ---
 
 ## Features
 
-### 📋 Requisitos Funcionais (RF)
-- RF01: Permitir cadastrar produtos com descrição, categoria e preço
-- RF02: Permitir listar todos os produtos cadastrados
-- RF03: Permitir atualizar produtos existentes
-- RF04: Permitir remover produtos pelo identificador
-- RF05: Permitir acesso aos produtos via API consumidora (Node.js)
+### 📋 Functional Requirements (FR)
+- FR01: Allow registering products with description, category, and price
+- FR02: Allow listing all registered products
+- FR03: Allow updating existing products
+- FR04: Allow removing products by identifier
+- FR05: Allow access to products via the consumer API (Node.js)
 
 ---
 
-### ⚙️ Requisitos Não Funcionais (RNF)
-- RNF01: Utilizar Redis como cache para operações de leitura
-- RNF02: Garantir invalidação automática do cache em operações de escrita
-- RNF03: Persistir os dados em banco MySQL
-- RNF04: Utilizar Docker para isolamento dos serviços
+### ⚙️ Non-Functional Requirements (NFR)
+- NFR01: Use Redis as cache for read operations
+- NFR02: Ensure automatic cache invalidation on write operations
+- NFR03: Persist data in a MySQL database
+- NFR04: Use Docker for service isolation
 
 ---
 
 ## ▶️ Run
 
-### 1️⃣ Clonar o repositório
-
+### 1️⃣ Clone the repository
 ```
 git clone https://github.com/GuilhermeOliveiraAgenor/docker-network-apis.git
 cd docker-network-apis
 ```
 
-### 2️⃣ Execute o arquivo de deploy
+### 2️⃣ Run the deploy script
 
--  O arquivo sobe os containers, executa testes e exibe os logs
+The script starts the containers, runs tests, and displays logs
 ```
 chmod +x deploy.sh
 ./deploy.sh
 ```
 
-##
-
-(Deploy alternativo) - Para subir apenas os serviços
+(Alternative deploy) - To start only the services
 ```
 docker compose build
 docker compose up -d
 ```
-
-
